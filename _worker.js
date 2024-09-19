@@ -1157,7 +1157,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     }
 
     let bestFragment = structuredClone(xrayConfigTemp);
-    bestFragment.remarks = '🐦‍🔥� Best Fragment Values';
+    bestFragment.remarks = '🐦‍🔥 Best Fragment Values';
     bestFragment.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
@@ -1286,15 +1286,15 @@ const getWarpConfigs = async (env, client) => {
     const {xray: xrayWarpOutbounds, singbox: singboxWarpOutbounds} = await buildWarpOutbounds(env, client, remoteDNS, localDNS, blockAds, bypassIran, blockPorn, bypassLAN, warpEndpoints) 
     const {xray: xrayWoWOutbounds, singbox: singboxWoWOutbounds} = await buildWoWOutbounds(env, client, remoteDNS, localDNS, blockAds, bypassIran, blockPorn, bypassLAN, wowEndpoint); 
     
-    singboxWarpConfig.outbounds[0].outbounds = ['🐦‍🔥� Singbox WARP BestPing'];
-    singboxWarpConfig.outbounds[1].tag = '🐦‍🔥� Singbox WARP BestPing';
+    singboxWarpConfig.outbounds[0].outbounds = ['🐦‍🔥 Singbox WARP BestPing'];
+    singboxWarpConfig.outbounds[1].tag = '🐦‍🔥 Singbox WARP BestPing';
     xrayWarpConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWarpConfig.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, false);
     xrayWarpConfig.outbounds.splice(0,1);
     xrayWarpConfig.routing.rules[xrayWarpConfig.routing.rules.length - 1].outboundTag = 'warp';
     delete xrayWarpConfig.observatory;
     delete xrayWarpConfig.routing.balancers;
-    xrayWarpBestPing.remarks = '🐦‍🔥� Xray WARP BestPing'
+    xrayWarpBestPing.remarks = '🐦‍🔥 Xray WARP BestPing'
     xrayWarpBestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWarpBestPing.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, true);
     xrayWarpBestPing.outbounds.splice(0,1);
@@ -2161,7 +2161,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span> 🐦‍🔥�</h2>
+		<h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span> 🐦‍🔥</h2>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span> </h2>
 			<form id="configForm">
@@ -2762,7 +2762,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 } else {
                     const errorMessage = await response.text();
                     console.error(errorMessage, response.status);
-                    alert('⚠️🐦‍🔥�🏿❗ An error occured, Please try again!\\n⛔ ' + errorMessage);
+                    alert('⚠️🐦‍🔥🏿❗ An error occured, Please try again!\\n⛔ ' + errorMessage);
                 }         
             } catch (error) {
                 console.error('Error:', error);
@@ -2782,7 +2782,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             if (activePortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one port should be selected! 🐦‍🔥�🏿");
+                alert("⛔ At least one port should be selected! 🐦‍🔥🏿");
                 activePortsNo = 1;
                 defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo++;
                 return false;
@@ -2791,7 +2791,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             if (activeHttpsPortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one TLS(https) port should be selected! 🐦‍🔥�🏿");
+                alert("⛔ At least one TLS(https) port should be selected! 🐦‍🔥🏿");
                 activeHttpsPortsNo = 1;
                 return false;
             }
@@ -2824,7 +2824,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 			textarea.select();
 			document.execCommand('copy');
 			document.body.removeChild(textarea);
-			alert('🐦‍🔥� Copied to clipboard:\\n\\n' +  value);
+			alert('🐦‍🔥 Copied to clipboard:\\n\\n' +  value);
 		}
 
         const applySettings = async (event, configForm) => {
@@ -2867,22 +2867,22 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             });
     
             if (invalidIPs.length) {
-                alert('⛔ Invalid IPs or Domains 🐦‍🔥�🏿\\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
+                alert('⛔ Invalid IPs or Domains 🐦‍🔥🏿\\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
                 return false;
             }
             
             if (invalidEndpoints.length) {
-                alert('⛔ Invalid endpoint 🐦‍🔥�🏿\\n\\n' + invalidEndpoints.map(endpoint => '⚠️ ' + endpoint).join('\\n'));
+                alert('⛔ Invalid endpoint 🐦‍🔥🏿\\n\\n' + invalidEndpoints.map(endpoint => '⚠️ ' + endpoint).join('\\n'));
                 return false;
             }
 
             if (lengthMin >= lengthMax || intervalMin > intervalMax) {
-                alert('⛔ Minimum should be smaller or equal to Maximum! 🐦‍🔥�🏿');               
+                alert('⛔ Minimum should be smaller or equal to Maximum! 🐦‍🔥🏿');               
                 return false;
             }
 
             if (!(isVless && (hasSecurity && validSecurityType || !hasSecurity) && validTransmission) && chainProxy) {
-                alert('⛔ Invalid Config! 🐦‍🔥�🏿 \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
+                alert('⛔ Invalid Config! 🐦‍🔥🏿 \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
                 return false;
             }
 
@@ -2906,7 +2906,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 } else {
                     const errorMessage = await response.text();
                     console.error(errorMessage, response.status);
-                    alert('⚠️🐦‍🔥�🏿 Session expired! Please login again.');
+                    alert('⚠️🐦‍🔥🏿 Session expired! Please login again.');
                     window.location.href = '/login';
                 }           
             } catch (error) {
@@ -2952,7 +2952,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             const isLongEnough = newPassword.length >= 8;
 
             if (!(hasCapitalLetter && hasNumber && isLongEnough)) {
-                passwordError.textContent = '⚠️🐦‍🔥�🏿 Password must contain at least one capital letter, one number, and be at least 8 characters long.';
+                passwordError.textContent = '⚠️🐦‍🔥🏿 Password must contain at least one capital letter, one number, and be at least 8 characters long.';
                 return false;
             }
                     
@@ -2969,13 +2969,13 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("Password changed successfully! 🐦‍🔥�🏿");
+                    alert("Password changed successfully! 🐦‍🔥🏿");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
                     passwordError.textContent = '⚠️ ' + errorMessage;
                     console.error(errorMessage, response.status);
-                    alert('⚠️🐦‍🔥�🏿 Session expired! Please login again.');
+                    alert('⚠️🐦‍🔥🏿 Session expired! Please login again.');
                     window.location.href = '/login';
                 } else {
                     const errorMessage = await response.text();
@@ -3065,7 +3065,7 @@ const renderLoginPage = async () => {
     </head>
     <body>
         <div class="container">
-            <h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span> 🐦‍🔥�</h2>
+            <h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span> 🐦‍🔥</h2>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -3136,7 +3136,7 @@ const renderErrorPage = (message, error, refer) => {
 
     <body>
         <div id="error-container">
-            <h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span> 🐦‍🔥�</h2>
+            <h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span> 🐦‍🔥</h2>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/icloudflare-ux/M2raynG-Panel-Pro/blob/main/README.md">documents</a>' 
@@ -3435,11 +3435,11 @@ const singboxConfigTemp = {
         {
             type: "selector",
             tag: "proxy",
-            outbounds: ["🐦‍🔥� BestPing"]
+            outbounds: ["🐦‍🔥 BestPing"]
         },
         {
             type: "urltest",
-            tag: "🐦‍🔥� BestPing",
+            tag: "🐦‍🔥 BestPing",
             outbounds: [],
             url: "https://www.gstatic.com/generate_204",
             interval: "30s",
