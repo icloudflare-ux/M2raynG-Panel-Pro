@@ -1727,7 +1727,7 @@ const updateDataset = async (env, Settings) => {
         wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'engage.cloudflareclient.com:2408',
         warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'ipw.nscl.ir:864',
         hiddifyNoiseMode: Settings ? Settings.get('hiddifyNoiseMode') : currentProxySettings?.hiddifyNoiseMode || 'm4',
-        nikaNGNoiseMode: Settings ? Settings.get('nikaNGNoiseMode') : currentProxySettings?.M2rayNGNoiseMode || 'quic',
+        M2rayNGNoiseMode: Settings ? Settings.get('M2rayNGNoiseMode') : currentProxySettings?.M2rayNGNoiseMode || 'quic',
         noiseCountMin: Settings ? Settings.get('noiseCountMin') : currentProxySettings?.noiseCountMin || '15',
         noiseCountMax: Settings ? Settings.get('noiseCountMax') : currentProxySettings?.noiseCountMax || '15',
         noiseSizeMin: Settings ? Settings.get('noiseSizeMin') : currentProxySettings?.noiseSizeMin || '5',
@@ -2501,7 +2501,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                             </div>
                             <div>
                                 <span class="material-symbols-outlined symbol">verified</span>
-                                <span>NikaNG</span>
+                                <span>M2rayNG</span>
                             </div>
                             <div>
                                 <span class="material-symbols-outlined symbol">verified</span>
@@ -2562,10 +2562,10 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                             </div>
                         </td>
 						<td>
-                            <button onclick="openQR('https://${hostName}/warpsub/${userID}?app=nikang#M2rayNG-Warp-Pro', 'Warp Pro Subscription')" style="margin-bottom: 8px;">
+                            <button onclick="openQR('https://${hostName}/warpsub/${userID}?app=M2rayNG#M2rayNG-Warp-Pro', 'Warp Pro Subscription')" style="margin-bottom: 8px;">
                                 QR Code&nbsp;<span class="material-symbols-outlined">qr_code_2</span>
                             </button>
-                            <button onclick="copyToClipboard('https://${hostName}/warpsub/${userID}?app=nikang#M2rayNG-Warp-Pro', false)">
+                            <button onclick="copyToClipboard('https://${hostName}/warpsub/${userID}?app=M2rayNG#M2rayNG-Warp-Pro', false)">
                                 Copy Sub<span class="material-symbols-outlined">toc</span>
                             </button>
                         </td>
